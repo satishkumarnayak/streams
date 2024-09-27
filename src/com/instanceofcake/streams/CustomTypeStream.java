@@ -1,8 +1,6 @@
 package com.instanceofcake.streams;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class CustomTypeStream {
@@ -38,9 +36,18 @@ public class CustomTypeStream {
                 .sorted(Comparator.comparing(Book::getTitle))
                 .forEach(System.out::println);*/
 
-        books.stream()
+    /*    books.stream()
                 .map(Book::getTitle)
-                .forEach(System.out::println);
+                .forEach(System.out::println);*/
+
+
+        Map<Type,List<Book>> map = books.stream()
+                .collect(Collectors.groupingBy(Book::getType));
+
+        System.out.println(map);
+
+
+
 
     }
 }
