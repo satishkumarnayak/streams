@@ -1,4 +1,4 @@
-package com.instanceofcake.numbers;
+package com.instanceofcake.streams;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
