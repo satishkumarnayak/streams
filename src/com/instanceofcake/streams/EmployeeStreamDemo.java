@@ -2,9 +2,8 @@ package com.instanceofcake.streams;
 
 import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class EmployeeStreamDemo {
@@ -34,8 +33,18 @@ public class EmployeeStreamDemo {
 
        // mostSenior(list);
 
-        avgSalary(list);
+    //    avgSalary(list);
 
+        countOccurance("aaccrf");
+
+
+
+    }
+
+    private static void countOccurance(String ip) {
+        List<String> list = Arrays.asList(ip.split(""));
+        Map<String, Long> collect = list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(collect);
 
 
     }
