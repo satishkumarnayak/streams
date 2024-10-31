@@ -3,6 +3,7 @@ package com.instanceofcake.streams;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.stream.IntStream;
 
 public class StreamsWithNumbers {
@@ -37,11 +38,23 @@ public class StreamsWithNumbers {
      //   IntStream.range(0,5).forEach(x -> System.out.print(x+" "));
 
   //      IntStream.range(0,10).filter(x -> x % 2 == 0).forEach(System.out::println);
-
+      // sum of list of numbers
         List<Integer> numbers = List.of(1,2,4,1,6,3,2);
 
+
         Optional<Integer> res = numbers.stream().reduce((a, b) -> a + b);
-        System.out.println(res.get());
+
+        int sum1 = numbers.stream().mapToInt(x -> x).sum();
+            System.out.println(sum1);
+
+
+       res = numbers.stream().reduce(Integer::sum);
+  //      System.out.println(res.get());
+
+        // average of numbers
+        OptionalDouble average = numbers.stream().mapToDouble(a -> a).average();
+        System.out.println(average.getAsDouble());
+
 
 
     }
