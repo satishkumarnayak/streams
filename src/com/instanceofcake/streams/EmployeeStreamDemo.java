@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class EmployeeStreamDemo {
 
@@ -24,7 +26,19 @@ public class EmployeeStreamDemo {
 
       //  highestSalary(list);
 
-        bornAfter2000(list);
+      //  bornAfter2000(list);
+
+         countEmpDeptWise(list);
+
+    }
+
+    private static void countEmpDeptWise(List<Employee> list) {
+
+
+        Map<String, Long> collect = list.stream().collect(Collectors.groupingBy(Employee::getDept, Collectors.counting()));
+        System.out.println(collect);
+
+
 
     }
 
