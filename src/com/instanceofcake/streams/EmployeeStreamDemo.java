@@ -16,8 +16,15 @@ public class EmployeeStreamDemo {
 
         List<Employee> list = List.of(emp1, emp2, emp3, emp4, emp5, emp6);
 
-        noOfMalesFemale(list);
+   //     noOfMalesFemale(list);
 
+        printDepts(list);
+
+    }
+
+    private static void printDepts(List<Employee> list) {
+
+        list.stream().map(e->e.getDept()).distinct().forEach(System.out::println);
     }
 
 
