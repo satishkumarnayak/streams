@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class StreamsWithNumbers {
@@ -53,9 +54,15 @@ public class StreamsWithNumbers {
 
         // average of numbers
         OptionalDouble average = numbers.stream().mapToDouble(a -> a).average();
-        System.out.println(average.getAsDouble());
+    //    System.out.println(average.getAsDouble());
 
 
+        // print even and odd
+
+        List<Integer> even = numbers.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+   //     System.out.println(even);
+
+        numbers.stream().filter(x -> x % 2 != 0).forEach(System.out::println);
 
     }
 
