@@ -28,8 +28,23 @@ public class EmployeeStreamDemo {
 
       //  bornAfter2000(list);
 
-         countEmpDeptWise(list);
+        // countEmpDeptWise(list);
 
+       // avgSalaryForEachDept(list);
+
+        mostSenior(list);
+
+    }
+
+    private static void mostSenior(List<Employee> list) {
+        Employee employee = list.stream().sorted(Comparator.comparing(Employee::getDob, Comparator.naturalOrder())).findFirst().get();
+        System.out.println(employee);
+
+    }
+
+    private static void avgSalaryForEachDept(List<Employee> list) {
+        Map<String, Double> collect = list.stream().collect(Collectors.groupingBy(Employee::getDept, Collectors.averagingDouble(Employee::getSalary)));
+        System.out.println(collect);
     }
 
     private static void countEmpDeptWise(List<Employee> list) {
