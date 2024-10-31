@@ -8,14 +8,25 @@ public class Employee {
     private String dept;
     private double salary;
     private String gender;
-    private LocalDate doj;
+    private LocalDate dob;
 
     public Employee(String name, String dept, double salary, String gender, LocalDate doj) {
         this.name = name;
         this.dept = dept;
         this.salary = salary;
         this.gender = gender;
-        this.doj = doj;
+        this.dob = doj;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", dept='" + dept + '\'' +
+                ", salary=" + salary +
+                ", gender='" + gender + '\'' +
+                ", doj=" + dob +
+                '}';
     }
 
     public String getName() {
@@ -50,11 +61,11 @@ public class Employee {
         this.gender = gender;
     }
 
-    public LocalDate getDoj() {
-        return doj;
+    public LocalDate getDob() {
+        return dob;
     }
 
-    public void setDoj(LocalDate doj) {
-        this.doj = doj;
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
     }
 }
