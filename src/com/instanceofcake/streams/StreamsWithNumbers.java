@@ -1,6 +1,8 @@
 package com.instanceofcake.streams;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class StreamsWithNumbers {
@@ -34,23 +36,12 @@ public class StreamsWithNumbers {
 
      //   IntStream.range(0,5).forEach(x -> System.out.print(x+" "));
 
-        IntStream.range(0,10).filter(x -> x % 2 == 0).forEach(System.out::println);
+  //      IntStream.range(0,10).filter(x -> x % 2 == 0).forEach(System.out::println);
 
+        List<Integer> numbers = List.of(1,2,4,1,6,3,2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Optional<Integer> res = numbers.stream().reduce((a, b) -> a + b);
+        System.out.println(res.get());
 
 
     }
