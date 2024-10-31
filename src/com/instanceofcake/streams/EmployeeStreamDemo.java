@@ -32,8 +32,18 @@ public class EmployeeStreamDemo {
 
        // avgSalaryForEachDept(list);
 
-        mostSenior(list);
+       // mostSenior(list);
 
+        avgSalary(list);
+
+
+
+    }
+
+    private static void avgSalary(List<Employee> list) {
+
+        Double collect = list.stream().collect(Collectors.averagingDouble(Employee::getSalary));
+        System.out.println(collect);
     }
 
     private static void mostSenior(List<Employee> list) {
