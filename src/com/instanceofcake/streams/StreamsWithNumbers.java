@@ -40,13 +40,13 @@ public class StreamsWithNumbers {
 
   //      IntStream.range(0,10).filter(x -> x % 2 == 0).forEach(System.out::println);
       // sum of list of numbers
-        List<Integer> numbers = List.of(1,2,4,1,6,3,2);
+        List<Integer> numbers = List.of(11,12,24,14,26,53,82);
 
 
         Optional<Integer> res = numbers.stream().reduce((a, b) -> a + b);
 
         int sum1 = numbers.stream().mapToInt(x -> x).sum();
-            System.out.println(sum1);
+   //         System.out.println(sum1);
 
 
        res = numbers.stream().reduce(Integer::sum);
@@ -62,7 +62,11 @@ public class StreamsWithNumbers {
         List<Integer> even = numbers.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
    //     System.out.println(even);
 
-        numbers.stream().filter(x -> x % 2 != 0).forEach(System.out::println);
+  //      numbers.stream().filter(x -> x % 2 != 0).forEach(System.out::println);
+
+        // print numbers starts with 1
+
+        numbers.stream().map(x->x.toString()).filter(x->x.startsWith("1")).forEach(System.out::println);
 
     }
 
