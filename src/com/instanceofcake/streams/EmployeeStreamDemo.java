@@ -1,6 +1,7 @@
 package com.instanceofcake.streams;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 
 public class EmployeeStreamDemo {
@@ -18,8 +19,16 @@ public class EmployeeStreamDemo {
 
    //     noOfMalesFemale(list);
 
-        printDepts(list);
+   //     printDepts(list);
 
+        highestSalary(list);
+
+    }
+
+    private static void highestSalary(List<Employee> list) {
+
+        Employee v = list.stream().max(Comparator.comparingDouble(Employee::getSalary)).get();
+        System.out.println(v);
     }
 
     private static void printDepts(List<Employee> list) {
