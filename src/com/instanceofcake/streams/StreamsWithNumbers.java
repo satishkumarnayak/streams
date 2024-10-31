@@ -66,7 +66,10 @@ public class StreamsWithNumbers {
 
         // print numbers starts with 1
 
-        numbers.stream().map(x->x.toString()).filter(x->x.startsWith("1")).forEach(System.out::println);
+ //       numbers.stream().map(x->x.toString()).filter(x->x.startsWith("1")).forEach(System.out::println);
+
+        // ignore first 5 numbers
+        numbers.stream().skip(5).forEach(System.out::println);
 
     }
 
