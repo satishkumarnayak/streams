@@ -1,6 +1,7 @@
 package com.instanceofcake.streams;
 
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Comparator;
 import java.util.List;
 
@@ -21,8 +22,14 @@ public class EmployeeStreamDemo {
 
    //     printDepts(list);
 
-        highestSalary(list);
+      //  highestSalary(list);
 
+        bornAfter2000(list);
+
+    }
+
+    private static void bornAfter2000(List<Employee> list) {
+        list.stream().filter(e-> e.getDob().getYear() > 2000).forEach(System.out::println);
     }
 
     private static void highestSalary(List<Employee> list) {
