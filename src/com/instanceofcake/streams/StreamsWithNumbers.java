@@ -1,9 +1,6 @@
 package com.instanceofcake.streams;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalDouble;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -69,8 +66,12 @@ public class StreamsWithNumbers {
  //       numbers.stream().map(x->x.toString()).filter(x->x.startsWith("1")).forEach(System.out::println);
 
         // ignore first 5 numbers
-        numbers.stream().skip(5).forEach(System.out::println);
+      //  numbers.stream().skip(5).forEach(System.out::println);
 
+        //stats
+
+        DoubleSummaryStatistics doubleSummaryStatistics = numbers.stream().mapToDouble(x -> x).summaryStatistics();
+        System.out.println(doubleSummaryStatistics);
     }
 
 }
