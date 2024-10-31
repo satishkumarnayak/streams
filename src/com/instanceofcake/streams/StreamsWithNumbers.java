@@ -37,7 +37,7 @@ public class StreamsWithNumbers {
 
   //      IntStream.range(0,10).filter(x -> x % 2 == 0).forEach(System.out::println);
       // sum of list of numbers
-        List<Integer> numbers = List.of(11,12,24,14,26,53,82);
+        List<Integer> numbers = List.of(11,12,24,10,26,53,82);
 
 
         Optional<Integer> res = numbers.stream().reduce((a, b) -> a + b);
@@ -71,7 +71,20 @@ public class StreamsWithNumbers {
         //stats
 
         DoubleSummaryStatistics doubleSummaryStatistics = numbers.stream().mapToDouble(x -> x).summaryStatistics();
-        System.out.println(doubleSummaryStatistics);
+  //      System.out.println(doubleSummaryStatistics);
+
+        // max and min
+        Integer i = numbers.stream().max(Comparator.comparing(Integer::valueOf)).get();
+    //    System.out.println(i);
+
+        Integer j = numbers.stream().sorted(Comparator.naturalOrder()).findFirst().get();
+    //    System.out.println(j);
+
+        // asc and desc
+
+   //     numbers.stream().sorted().forEach(System.out::println);
+
+        numbers.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
     }
 
 }
